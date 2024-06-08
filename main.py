@@ -29,8 +29,8 @@
 # Программа должна выводить результат боя в консоль.
 # Пример результата:
 #
-# Боец выбирает меч.
-#
+# Боец выбирает меч
+
 # Боец наносит удар мечом.
 #
 # Монстр побежден!
@@ -47,7 +47,7 @@ class Weapon(ABC):
         self.name = name
         self.damage = damage
     @abstractmethod
-    def hit(self):
+    def attack(self):
         pass
 
     def getname(self):
@@ -56,11 +56,11 @@ class Weapon(ABC):
 
 
 class Bow(Weapon):
-    def hit(self):
+    def attack(self):
         print(f"выстрел из {self.name}")
 
 class Sword(Weapon):
-    def hit(self):
+    def attack(self):
         print(f"удар с использованием {self.name}")
 
 
@@ -87,8 +87,8 @@ class Fighter():
         self.armor = new_weapon
         print(f"Боец {self.name} выбрал {self.armor.getname()}")
 
-    def hit_with_weapon(self):
-        self.armor.hit()
+    def attack_with_weapon(self):
+        self.armor.attack()
 
     def harm_monster(self, monster: Monster):
 
@@ -100,8 +100,8 @@ figher_heracl = Fighter("Геракл", 5500)
 monster_hidra = Monster("Гидра",800)
 
 figher_heracl.choose_weapon(sword_artur)
-figher_heracl.hit_with_weapon()
+figher_heracl.attack_with_weapon()
 figher_heracl.harm_monster(monster_hidra)
 figher_heracl.choose_weapon(bow_asg)
-figher_heracl.hit_with_weapon()
+figher_heracl.attack_with_weapon()
 figher_heracl.harm_monster(monster_hidra)
